@@ -60,6 +60,7 @@ namespace senhasv2
             this.btn_Enter.TabIndex = 1;
             this.btn_Enter.Text = "Entrar";
             this.btn_Enter.UseVisualStyleBackColor = true;
+            this.btn_Enter.Click += new System.EventHandler(this.btn_Enter_Click);
             // 
             // bnt_Exit
             // 
@@ -102,6 +103,7 @@ namespace senhasv2
             // 
             this.tb_Key.Location = new System.Drawing.Point(213, 61);
             this.tb_Key.Name = "tb_Key";
+            this.tb_Key.PasswordChar = '*';
             this.tb_Key.Size = new System.Drawing.Size(207, 20);
             this.tb_Key.TabIndex = 6;
             // 
@@ -114,6 +116,7 @@ namespace senhasv2
             this.linkCadastro.TabIndex = 7;
             this.linkCadastro.TabStop = true;
             this.linkCadastro.Text = "Cadastrar";
+            this.linkCadastro.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkCadastro_LinkClicked);
             // 
             // Form1
             // 
@@ -131,6 +134,7 @@ namespace senhasv2
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
