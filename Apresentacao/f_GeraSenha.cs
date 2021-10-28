@@ -7,22 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static senhasv2.DAL.LoginDALcomandos;
 
 namespace senhasv2.Apresentacao
 {
-    public partial class f_Principal : Form
+    public partial class f_GeraSenha : Form
     {
-        public f_Principal()
+        public f_GeraSenha()
         {
             InitializeComponent();
-            label2.Text = " Bem vindo " + Dadosdelogin.nomeUsuario + "!";
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Close();
-
         }
     }
 }

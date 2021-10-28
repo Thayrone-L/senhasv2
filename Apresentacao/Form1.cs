@@ -43,8 +43,10 @@ namespace senhasv2
                 controle.acessar(tb_User.Text, tb_Key.Text);
                 if (controle.tem)
                 {
+                   
                     f_Principal entra = new f_Principal();
                     entra.Show();
+                    Close();
                 }
                 else
                 {

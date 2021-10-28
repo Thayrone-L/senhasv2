@@ -15,10 +15,14 @@ namespace senhasv2.DAL
         Conexao con = new Conexao();
         SqlDataReader dr;
 
-
+        public static class Dadosdelogin
+        {
+            public static string nomeUsuario;
+        }
 
         public bool verificarLogin(String login, String senha)
         {
+            
             cmd.CommandText = "SELECT * FROM usuarios_sistema WHERE [USER] = @login AND SENHA = @senha";
             cmd.Parameters.AddWithValue("@login", login);
             cmd.Parameters.AddWithValue("@senha", senha);
@@ -29,6 +33,7 @@ namespace senhasv2.DAL
                 dr = cmd.ExecuteReader();
                 if (dr.HasRows) 
                 {
+                    Dadosdelogin.nomeUsuario = login;
                     tem = true;
                 }
                 con.desconectar();
