@@ -46,7 +46,9 @@ namespace senhasv2
                    
                     f_Principal entra = new f_Principal();
                     entra.Show();
-                    Close();
+                    this.Hide();
+       
+                
                 }
                 else
                 {
