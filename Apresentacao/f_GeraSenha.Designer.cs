@@ -29,7 +29,7 @@ namespace senhasv2.Apresentacao
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tb_Qtd = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cb_numeros = new System.Windows.Forms.CheckBox();
             this.cb_simbolos = new System.Windows.Forms.CheckBox();
@@ -39,16 +39,17 @@ namespace senhasv2.Apresentacao
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lbl_SenhaGerada = new System.Windows.Forms.Label();
+            this.tb_Senha = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBox1
+            // tb_Qtd
             // 
-            this.textBox1.Location = new System.Drawing.Point(22, 41);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(130, 20);
-            this.textBox1.TabIndex = 16;
+            this.tb_Qtd.Location = new System.Drawing.Point(22, 41);
+            this.tb_Qtd.Name = "tb_Qtd";
+            this.tb_Qtd.Size = new System.Drawing.Size(130, 20);
+            this.tb_Qtd.TabIndex = 16;
             // 
             // label1
             // 
@@ -62,7 +63,7 @@ namespace senhasv2.Apresentacao
             // cb_numeros
             // 
             this.cb_numeros.AutoSize = true;
-            this.cb_numeros.Location = new System.Drawing.Point(22, 114);
+            this.cb_numeros.Location = new System.Drawing.Point(22, 90);
             this.cb_numeros.Name = "cb_numeros";
             this.cb_numeros.Size = new System.Drawing.Size(94, 17);
             this.cb_numeros.TabIndex = 14;
@@ -72,7 +73,7 @@ namespace senhasv2.Apresentacao
             // cb_simbolos
             // 
             this.cb_simbolos.AutoSize = true;
-            this.cb_simbolos.Location = new System.Drawing.Point(22, 90);
+            this.cb_simbolos.Location = new System.Drawing.Point(22, 113);
             this.cb_simbolos.Name = "cb_simbolos";
             this.cb_simbolos.Size = new System.Drawing.Size(94, 17);
             this.cb_simbolos.TabIndex = 13;
@@ -101,16 +102,17 @@ namespace senhasv2.Apresentacao
             // 
             // btn_gerar
             // 
-            this.btn_gerar.Location = new System.Drawing.Point(196, 229);
+            this.btn_gerar.Location = new System.Drawing.Point(197, 229);
             this.btn_gerar.Name = "btn_gerar";
             this.btn_gerar.Size = new System.Drawing.Size(75, 23);
             this.btn_gerar.TabIndex = 10;
             this.btn_gerar.Text = "Gerar senha";
             this.btn_gerar.UseVisualStyleBackColor = true;
+            this.btn_gerar.Click += new System.EventHandler(this.btn_gerar_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.tb_Qtd);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.cb_numeros);
             this.groupBox1.Controls.Add(this.cb_simbolos);
@@ -124,8 +126,9 @@ namespace senhasv2.Apresentacao
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.tb_Senha);
             this.groupBox2.Controls.Add(this.lbl_SenhaGerada);
-            this.groupBox2.Location = new System.Drawing.Point(196, 56);
+            this.groupBox2.Location = new System.Drawing.Point(197, 56);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(273, 153);
             this.groupBox2.TabIndex = 18;
@@ -140,6 +143,14 @@ namespace senhasv2.Apresentacao
             this.lbl_SenhaGerada.Size = new System.Drawing.Size(0, 13);
             this.lbl_SenhaGerada.TabIndex = 0;
             // 
+            // tb_Senha
+            // 
+            this.tb_Senha.Location = new System.Drawing.Point(6, 22);
+            this.tb_Senha.Multiline = true;
+            this.tb_Senha.Name = "tb_Senha";
+            this.tb_Senha.Size = new System.Drawing.Size(261, 125);
+            this.tb_Senha.TabIndex = 1;
+            // 
             // f_GeraSenha
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -152,7 +163,8 @@ namespace senhasv2.Apresentacao
             this.Controls.Add(this.btn_gerar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "f_GeraSenha";
-            this.Text = "f_GeraSenha";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Gerador de senhas";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -164,7 +176,7 @@ namespace senhasv2.Apresentacao
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tb_Qtd;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox cb_numeros;
         private System.Windows.Forms.CheckBox cb_simbolos;
@@ -174,5 +186,6 @@ namespace senhasv2.Apresentacao
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label lbl_SenhaGerada;
+        private System.Windows.Forms.TextBox tb_Senha;
     }
 }
