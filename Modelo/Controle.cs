@@ -34,5 +34,16 @@ namespace senhasv2.Modelo
             }
             return mensagem;
         }
+        public string cadastrarUser(String login, String plataforma, String senha)
+        {
+            LoginDALcomandos loginDAL = new LoginDALcomandos();
+            this.mensagem = loginDAL.cadastrarUser(login, plataforma, senha);
+            if (loginDAL.tem)
+            {
+
+                this.tem = true;
+            }
+            return mensagem;
+        }
     }
 }

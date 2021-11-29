@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Apresentacao\f_CadastroUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apresentacao\f_CadastroUsuarios.Designer.cs">
+      <DependentUpon>f_CadastroUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Apresentacao\f_GeraSenha.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,9 +79,19 @@
     <Compile Include="Apresentacao\MySqlConnection.cs" />
     <Compile Include="DAL\Conexao.cs" />
     <Compile Include="DAL\LoginDALcomandos.cs" />
+    <Compile Include="Modelo\ChecaForcaSenha.cs" />
     <Compile Include="Modelo\Controle.cs" />
+    <Compile Include="Modelo\ForcaDaSenha.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="senhasDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>senhasDataSet.xsd</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Apresentacao\f_CadastroUsuarios.resx">
+      <DependentUpon>f_CadastroUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Apresentacao\f_GeraSenha.resx">
       <DependentUpon>f_GeraSenha.cs</DependentUpon>
     </EmbeddedResource>
@@ -106,6 +122,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="senhasDataSet.xsc">
+      <DependentUpon>senhasDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="senhasDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>senhasDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="senhasDataSet.xss">
+      <DependentUpon>senhasDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

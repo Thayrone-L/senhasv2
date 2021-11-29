@@ -15,6 +15,7 @@ namespace senhasv2.DAL
         Conexao con = new Conexao();
         SqlDataReader dr;
 
+
         public static class Dadosdelogin
         {
             public static string nomeUsuario;
@@ -75,6 +76,32 @@ namespace senhasv2.DAL
                 this.mensagem = "Senhas não correspondem!";
             }
             return mensagem;
+        }
+
+        public string cadastrarUser(String plataforma, String senha,String login)
+        {
+            
+           
+                cmd.CommandText = "INSERT INTO users VALUES (@u, @p, @s, @t); ";
+                cmd.Parameters.AddWithValue("@u", Dadosdelogin.nomeUsuario);
+                cmd.Parameters.AddWithValue("@p", plataforma);
+                cmd.Parameters.AddWithValue("@s", senha);
+                cmd.Parameters.AddWithValue("@t", login);
+                try
+                {
+                    cmd.Connection = con.conectar();
+                    cmd.ExecuteNonQuery();
+                    con.desconectar();
+                    this.mensagem = "Cadastrado com sucesso";
+                   
+                }
+                catch (SqlException a)
+                {
+                    this.mensagem = a.Message;
+                }
+
+            return mensagem;
+
         }
     }
 }

@@ -8,15 +8,27 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace senhasv2.Apresentacao
 {
     public partial class f_GeraSenha : Form
     {
-        public f_GeraSenha()
+        f_CadastroUsuarios instanciaf_CadastroUsuarios;
+        
+
+        public f_GeraSenha(f_CadastroUsuarios f_Cadastro = null)
         {
             InitializeComponent();
+            instanciaf_CadastroUsuarios = f_Cadastro;
+            
         }
 
+        /*
+        public f_GeraSenha(f_Principal f_Principal)
+        {
+            this.f_Principal = f_Principal;
+        }
+        */
         public static string gerasenha(int tamanho, bool temMaiuscula, bool temNumero, bool temSimbolo )
         {
             var charsbase = "abcdefghijklmnopqrstuvwxyz";
@@ -63,6 +75,16 @@ namespace senhasv2.Apresentacao
             {
                 MessageBox.Show("Digite um numero", "Entrada inválida", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 tb_Qtd.Clear();
+            }
+            
+        }
+
+        private void f_GeraSenha_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (Application.OpenForms.OfType<f_CadastroUsuarios>().Count()>0) { 
+            instanciaf_CadastroUsuarios.tb_Senha.Text = tb_Senha.Text;
+            instanciaf_CadastroUsuarios.tb_Senha.Refresh();
+
             }
             
         }

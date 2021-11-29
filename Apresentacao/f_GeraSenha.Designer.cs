@@ -38,8 +38,8 @@ namespace senhasv2.Apresentacao
             this.btn_gerar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.lbl_SenhaGerada = new System.Windows.Forms.Label();
             this.tb_Senha = new System.Windows.Forms.TextBox();
+            this.lbl_SenhaGerada = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -135,14 +135,6 @@ namespace senhasv2.Apresentacao
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Senha";
             // 
-            // lbl_SenhaGerada
-            // 
-            this.lbl_SenhaGerada.AutoSize = true;
-            this.lbl_SenhaGerada.Location = new System.Drawing.Point(17, 25);
-            this.lbl_SenhaGerada.Name = "lbl_SenhaGerada";
-            this.lbl_SenhaGerada.Size = new System.Drawing.Size(0, 13);
-            this.lbl_SenhaGerada.TabIndex = 0;
-            // 
             // tb_Senha
             // 
             this.tb_Senha.Location = new System.Drawing.Point(6, 22);
@@ -150,6 +142,14 @@ namespace senhasv2.Apresentacao
             this.tb_Senha.Name = "tb_Senha";
             this.tb_Senha.Size = new System.Drawing.Size(261, 125);
             this.tb_Senha.TabIndex = 1;
+            // 
+            // lbl_SenhaGerada
+            // 
+            this.lbl_SenhaGerada.AutoSize = true;
+            this.lbl_SenhaGerada.Location = new System.Drawing.Point(17, 25);
+            this.lbl_SenhaGerada.Name = "lbl_SenhaGerada";
+            this.lbl_SenhaGerada.Size = new System.Drawing.Size(0, 13);
+            this.lbl_SenhaGerada.TabIndex = 0;
             // 
             // f_GeraSenha
             // 
@@ -165,6 +165,7 @@ namespace senhasv2.Apresentacao
             this.Name = "f_GeraSenha";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gerador de senhas";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.f_GeraSenha_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

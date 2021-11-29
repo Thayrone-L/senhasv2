@@ -16,71 +16,45 @@ namespace senhasv2.Apresentacao
     public partial class f_Principal : Form
     {
 
-
-
-        SqlCommand cmd = new SqlCommand();
-        Conexao con = new Conexao();
-        SqlDataReader dr;
+      
+     
 
         public f_Principal()
         {
             InitializeComponent();
-            label2.Text = " Bem vindo " + Dadosdelogin.nomeUsuario + "!";
+           Text = " Bem vindo " + Dadosdelogin.nomeUsuario + "!";
+          
             
         }
 
         private void f_Principal_Load(object sender, EventArgs e)
         {
-           
-            cmd.CommandText = " SELECT User_Name, Plataformas, Senha FROM dbo.users WHERE User_Name = @login";
-            cmd.Parameters.AddWithValue("@login", Dadosdelogin.nomeUsuario);
-            cmd.Connection = con.conectar();
-            dr = cmd.ExecuteReader();
-
-
-            int contador = 0;
-            while (dr.Read())
+            // TODO: esta linha de código carrega dados na tabela 'senhasDataSet.users'. Você pode movê-la ou removê-la conforme necessário.
+            try
             {
-
-                /* os as tres colunas em uma linha apenas
-                 * 
-                 * 
-                 * 
-                string[] stdr = { "Nome de Usuário:       ", dr[0].ToString(), "Plataforma:       ", dr[1].ToString(), "Senha:       ", dr[2].ToString() };
-               
-                listBox1.Items.Add(String.Concat(stdr)); */
-                contador++;
-                listBox1.Items.Add(dr[0]);
-                listBox2.Items.Add(dr[1]);
-                listBox3.Items.Add(dr[2]);
-
+                this.usersTableAdapter.FillBy(this.senhasDataSet.users, Dadosdelogin.nomeUsuario);
             }
-            dr.Close();
-            dr.Dispose();
-            con.desconectar();
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
 
-            label5.Text = contador.ToString();
+            label5.Text = senhasDataSet.users.Count.ToString();
         }
 
-        
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        public void loaddata()
         {
-            listBox2.SelectedIndex = listBox1.SelectedIndex;
-            listBox3.SelectedIndex = listBox1.SelectedIndex;
+            try
+            {
+                this.usersTableAdapter.FillBy(this.senhasDataSet.users, Dadosdelogin.nomeUsuario);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
         }
 
-        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            listBox1.SelectedIndex = listBox2.SelectedIndex;
-            listBox3.SelectedIndex = listBox2.SelectedIndex;
-        }
 
-        private void listBox3_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            listBox2.SelectedIndex = listBox3.SelectedIndex;
-            listBox1.SelectedIndex = listBox3.SelectedIndex;
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -88,5 +62,22 @@ namespace senhasv2.Apresentacao
             gerasenha.Show();
             
         }
+
+        private void usuáriosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            f_CadastroUsuarios cadastroUsuarios = new f_CadastroUsuarios(this);
+            cadastroUsuarios.Show();
+
+        }
+
+        private void btn_Novo_Click(object sender, EventArgs e)
+        {
+            f_CadastroUsuarios cadastroUsuarios = new f_CadastroUsuarios(this);
+            cadastroUsuarios.Show();
+        }
+
+       
+
+       
     }
 }
